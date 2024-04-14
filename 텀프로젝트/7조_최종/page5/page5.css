@@ -1,0 +1,82 @@
+/*전체 글꼴*/
+* {
+  font-family: "IBM Plex Sans KR", sans-serif;
+}
+
+body {
+  height: 1500px;
+}
+
+form {
+  margin-left: 600px;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+p {
+  margin-left: 850px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+/*배송 정보*/
+input[name="delivery"] {
+  height: 25px;
+  margin: 10px 0;
+}
+
+#name,
+#address,
+#message {
+  width: 600px;
+}
+
+#phoneNumber {
+  width: 191px;
+}
+
+#email,
+#emailSelect,
+#emailDomain {
+  width: 190px;
+}
+
+#message {
+  height: 100px;
+}
+
+/*결제 정보*/
+input[type="radio"] {
+  margin: 10px 0;
+}
+
+div#askName,
+div#bankName,
+select#bank {
+  height: 20px;
+  width: 173px;
+}
+
+div#askName,
+div#bankName,
+select#bank {
+  height: 20px;
+  width: 173px;
+  display: none;
+  /* 처음에는 숨김 */
+}
+
+#price {
+  line-height: 50px;
+}
+
+input[type="button"] {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-left: 200px;
+  background-color: black;
+  color: white;
+}

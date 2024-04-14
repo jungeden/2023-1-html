@@ -1,0 +1,112 @@
+/* 전체영역에서 여백을 없애줌 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+/*헤더 고정*/
+header {
+    position: fixed;
+    width: 100%;
+    height: 8.75em; 
+}
+
+/*로고, 컬렉션, 디자이너소개 부분*/
+div {
+    height: 1.43em; 
+    float: left;
+    background-color: white;
+}
+.collection,.designer{
+    height: 6.25em; 
+    float: left;
+    background-color: white;
+}
+
+
+.logo {
+    width: 70%;
+    font-size: 4.375em 
+}
+
+.collection {
+    width: 14%;
+    text-align: center;
+}
+
+.designer {
+    width: 15%;
+    text-align: center;
+}
+
+.collection>a:hover,
+.designer>a:hover {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+header>span {
+    width: 1%;
+    height: 6.25em;
+    float: left;
+    background-color: white;
+}
+
+/*내용이 메뉴에 가려지지 않도록*/
+section {
+    padding-top: 8.8em; /*이부분만 다름-이미지 살짝 겹쳐서*/
+}
+
+/* 리스트 마크 제거 */
+ul li {
+    list-style: none;
+}
+
+/*텍스트 밑줄을 없애고 색은 블랙 */
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#menu {
+    font: bold 1em;
+    width: 100%;
+    height: 3.125em; 
+    background: #e6afd3;
+    line-height: 3.125em; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 메인메뉴 왼쪽정렬, 너비25%, */
+#menu>ul>li {
+    float: left;
+    width: 25%;
+    position: relative;
+}
+
+#menu>ul>li>ul {
+    width: 100%;
+    display: none;
+    position: absolute;
+    font-size: 1em; 
+    background: rgb(181, 237, 245);
+}
+
+#menu>ul>li:hover>ul {
+    display: block;
+}
+
+#menu a:hover {
+    font-size: 1.25em; 
+}
+
+#menu>ul>li:hover {
+    background: #eedfe9;
+}
+
+#menu>ul>li>ul>li:hover {
+    background: rgb(221, 238, 245);
+}
