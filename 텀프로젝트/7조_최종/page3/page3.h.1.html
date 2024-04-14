@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>사인사색</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap');
+</style>
+	<style type="text/css">
+		@import url(menu.css);
+	</style>
+	<style>
+		*{font-family: 'Grandiflora One', cursive;}
+
+		body section {
+			padding-top: 8em;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			min-height: 80vh;
+			max-height: 80vh;
+			margin: 0;
+		}
+
+        section #container {
+            display: flex;
+            max-height: 80vh;
+           
+
+        }
+
+        section #image-container {
+        	width: 30%;
+        	float: left;
+            overflow: auto;
+            display: flex;
+    		flex-direction: column;
+    		align-items: center;
+   		 justify-content: center;
+			height: 780px;
+        }
+
+        section #image {
+        	max-width: 100%;
+            max-height: 80vh;
+            height: auto;
+            width: auto;
+           
+            display: block;
+            object-fit: contain;
+        }
+        .list-container {
+        	width: 70%;
+        	float: right;
+        	display: flex;
+        	align-items: center;        
+          justify-content: flex-start;
+        }
+       
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section li {
+            cursor: pointer;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        section #description {
+            margin-top: 10px;
+        }
+
+        section #detailsButton {
+            display: none;
+        }
+        .Buttons pre{
+    		width: 100%;
+        	display: flex;
+        	flex-direction: column;
+        	
+        	
+        }
+     
+        .description {
+        	
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        }
+
+       .descriptiondetail {
+       	width: 100%;
+        	float: right;
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+       }
+       
+       .descriptiondetail pre{
+       	display: flex;
+       	flex-direction: column;
+        	justify-content: center;
+        	align-items: center;
+       }
+  		
+  		#detail-pre {
+  			gap: 20px;
+  		}
+	</style>
+	<link rel="stylesheet" href="상세보기버튼.css">
+</head>
+
+<body>
+	<!-- 고정 값:logo, collection, 디자이너소개, menu-->
+	<header>
+		<div class="logodiv">
+			<img src="logo1.png" class="logo" onclick="logotopage()" width="1400" style="cursor: pointer;" >
+			<div class="textdiv">
+				<div class="collection" height="30"><a href="../page7/page7.html">컬렉션</a></div>
+				<span>|</span>
+				<div class="disigner" height="30"><a href="../page8/page8.html">디자이너 소개</a></div>
+			</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="page3.s.1.html">정세진</a>
+					<ul>
+						<li><a href="page3.s.1.html">블랙 코디 1</a></li>
+						<li><a href="page3.s.2.html">블랙 코디 2</a></li>
+					
+					</ul>
+				</li>
+				<li><a href="page3.h.1.html">노하민</a>
+					<ul>
+						<li><a href="page3.h.1.html">캐주얼 코디 1</a></li>
+						<li><a href="page3.h.2.html">캐주얼 코디 2</a></li>
+				
+					</ul>
+				</li>
+				<li><a href="page3.u.1.html">신유성</a>
+					<ul>
+						<li><a href="page3.u.1.html">심플 코디 1</a></li>
+						<li><a href="page3.u.2.html">심플 코디 2</a></li>
+					
+					</ul>
+				</li>
+				<li><a href="page3.m.1.html">김민서</a>
+					<ul>
+						<li><a href="page3.m.1.html">펑크 코디 1</a></li>
+						<li><a href="page3.m.2.html">펑크 코디 2</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</header>
+
+	<section>
+
+		<div id="container">
+			<div id="image-container">
+				<img id="image" src="h_full_1.png" alt="Default Image">
+			</div>
+			
+			<div  class="list-container">
+
+			<div class="Buttons">
+				<pre >
+				<img id="full" src="b_full.png" width="180" style="cursor: pointer;" onclick="changeImage('h_full_1.png', '캐주얼 스타일은 편안하면서도 스타일리쉬해, 너무 추리하지 않고 데일리하게 입기 좋습니다.')" >
+				<img id="outer" src="b_outer.png" width="180" style="cursor: pointer;" onclick="changeImage('lod.png', '준비중')" >
+				<img id="top" src="b_top.png" width="180" style="cursor: pointer;" onclick="changeImage('dh_ho.png', '무채색 후드티')" >
+				<img id="pan" src="b_pan.png" width="180" style="cursor: pointer;" onclick="changeImage('dh_s.png', '테이퍼드 핏 청바지')" >
+				<img id="sho" src="b_sho.png" width="180" style="cursor: pointer;" onclick="changeImage('dh_sn.png', '색이 귀여운 신발')" >
+				</pre>
+				</div>
+				<div class="descriptiondetail">
+				<pre id="detail-pre">
+                <div id="description"></div>
+
+
+                <img id="detailsButton" onclick="viewDetails()" width="180" style="cursor: pointer;" src="de.png">
+            </pre>
+        </div>
+            </div>
+
+        </div>
+</div>
+	</section>
+	<script>
+		function changeImage(imageSrc, description) {
+			document.getElementById('image').src = imageSrc;
+            document.getElementById('description').innerText = description;
+            document.getElementById('detailsButton').style.display = 'block';
+    }
+
+        function viewDetails() {
+        window.location.href = 'details.html';
+    }
+    function logotopage(){
+			window.location.href = '../page2/page2.html';
+		}
+    </script>
+</body>
+
+</html>

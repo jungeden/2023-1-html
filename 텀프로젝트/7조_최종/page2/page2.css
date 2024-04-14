@@ -1,0 +1,271 @@
+/*전체 글꼴*/
+* {
+  font-family: "Grandiflora One", cursive;
+}
+
+header {
+  z-index: 1; /*헤더 우선순위 첫 번째*/
+}
+
+/* section {
+	padding-top: 100px;
+} */
+
+/*텍스트 밑줄 없애고 색 블랙 */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/*버튼 크기*/
+button {
+  width: 23%;
+  height: 930px;
+  margin: 10px 15px;
+}
+
+/*각 버튼의 배경이미지*/
+#jeong {
+  background-image: url(FullBlack3.jpg);
+}
+
+#no {
+  background-image: url(Fullhamin.jpg);
+}
+
+#shin {
+  background-image: url(Full1.png);
+}
+
+#kim {
+  background-image: url(전신_펑크1.jpg);
+}
+
+/*버튼 위에 마우스 올리면 투명해지고 글자 나타남*/
+button:hover {
+  opacity: 0.5;
+  transition: 1s;
+  /*지연 시간 1초*/
+  border-style: hidden;
+}
+
+button:hover span {
+  opacity: 1;
+  transition: 1s;
+}
+
+span {
+  font-size: 70px;
+  opacity: 0;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 2px 2px 2px #000;
+}
+
+/*footer 크기*/
+.footer {
+  margin: 20px 20px;
+}
+
+#name {
+  font-size: 40px;
+  font-weight: 1000;
+}
+
+/* 전체영역에서 여백을 없애줌 */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*헤더 고정*/
+header {
+  position: fixed;
+  width: 100%;
+  height: 140px;
+}
+/*로고, 컬렉션, 디자이너소개 부분*/
+div {
+  height: 100px;
+  float: left;
+  background-color: rgb(255, 255, 255);
+}
+.logo {
+  width: 70%;
+  font-size: 70px;
+}
+.collection {
+  width: 14%;
+  text-align: center;
+}
+.disigner {
+  width: 15%;
+  text-align: center;
+}
+
+header > span {
+  width: 1%;
+  height: 100px;
+  float: left;
+}
+/*내용이 메뉴에 가려지지 않도록*/
+section {
+  padding-top: 140px;
+}
+/* 리스트 마크 제거 */
+ul li {
+  list-style: none;
+}
+/*텍스트 밑줄을 없애고 색은 블랙 */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#menu {
+  font: bold 16px;
+  width: 100%;
+  height: 50px;
+  background: #ccc;
+  line-height: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 메인메뉴 왼쪽정렬, 너비25%, */
+#menu > ul > li {
+  float: left;
+  width: 25%;
+  position: relative;
+}
+#menu > ul > li > ul {
+  width: 100%;
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  background: skyblue;
+}
+#menu > ul > li:hover > ul {
+  display: block;
+}
+#menu a:hover {
+  color: darkgreen;
+}
+/* 전체영역에서 여백을 없애줌 */
+* {
+  font-family: "Grandiflora One", cursive;
+  margin: 0;
+  padding: 0;
+
+  font-weight: 700;
+}
+
+/*헤더 고정*/
+header {
+  position: fixed;
+  width: 100%;
+  height: 140px;
+}
+
+/*로고, 컬렉션, 디자이너소개 부분*/
+header div {
+  height: 100px;
+  float: left;
+}
+
+header .collection {
+  text-align: center;
+}
+
+header .designer {
+  text-align: center;
+}
+
+header .collection > a:hover {
+  color: #b3a6df;
+  font-weight: bold;
+}
+
+/*내용이 메뉴에 가려지지 않도록*/
+section {
+  padding-top: 140px;
+}
+
+/* 리스트 마크 제거 */
+header ul li {
+  list-style: none;
+}
+
+/*텍스트 밑줄을 없애고 색은 블랙 */
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+#menu {
+  font: bold 16px;
+  width: 100%;
+  height: 50px;
+  background: #e6afd3;
+  line-height: 50px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 메인메뉴 왼쪽정렬, 너비25%, */
+#menu > ul > li {
+  float: left;
+  width: 25%;
+  position: relative;
+}
+
+#menu > ul > li > ul {
+  width: 100%;
+  display: none;
+  position: absolute;
+  font-size: 16px;
+  background: #a6dfdc;
+}
+
+#menu > ul > li:hover > ul {
+  display: block;
+}
+
+#menu a:hover {
+  font-size: large;
+}
+
+#menu > ul > li:hover {
+  background: #eedfe9;
+}
+#menu > ul > li > ul > li:hover {
+  background: rgb(221, 238, 245);
+}
+.logodiv {
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 60;
+}
+
+.textdiv {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: auto;
+  flex-direction: row;
+}
+
+.logodiv img {
+  width: 100%;
+  height: auto;
+}
+.collection {
+  height: auto;
+}
+.disigner {
+  height: auto;
+}
+.disigner > a:hover {
+  color: #b3a6df;
+  font-weight: bold;
+}
