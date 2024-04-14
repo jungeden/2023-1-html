@@ -1,0 +1,21 @@
+*{font-family: 'IBM Plex Sans KR', sans-serif;} /*전체 글꼴*/
+#complition{
+    font-size: 100px;
+    text-align: center;
+    /*화면 중앙에 배치*/
+    height: 150px;
+    margin: 200px 0px 0px 0px;
+}
+#account{
+    text-align: center;
+    font-size: 30px;
+    height: 300px;
+    padding-top: 0px;
+}
+button{
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: aliceblue;
+}

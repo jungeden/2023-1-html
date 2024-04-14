@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>사인사색</title>
+    <!--구글에서 글꼴 불러오기-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+    </style>
+    <style type="text/css">
+      /* @import url(../../menu.css); */
+      @import url(page5.css);
+      @import url(../page3/menu.css);
+      body section {
+        padding-top: 8em;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 80vh;
+        max-height: 80vh;
+        margin: 0;
+      }
+
+      section #container {
+        display: flex;
+        max-height: 80vh;
+      }
+
+      section #image-container {
+        width: 30%;
+        float: left;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 780px;
+      }
+
+      section #image {
+        max-width: 100%;
+        max-height: 80vh;
+        height: auto;
+        width: auto;
+
+        display: block;
+        object-fit: contain;
+      }
+      .list-container {
+        width: 70%;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      section li {
+        cursor: pointer;
+        margin-bottom: 10px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      section #description {
+        margin-top: 10px;
+      }
+
+      section #detailsButton {
+        display: none;
+      }
+      .Buttons pre {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .description {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .descriptiondetail {
+        width: 100%;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .descriptiondetail pre {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #detail-pre {
+        gap: 20px;
+      }
+    </style>
+    <script src="page5.js"></script>
+  </head>
+
+  <body>
+    <!-- header 고정-->
+    <header style="background-color: white">
+      <div class="logodiv">
+        <img
+          src="logo1.png"
+          class="logo"
+          onclick="location.href='../page2/page2.html'"
+          width="1400"
+          style="cursor: pointer"
+        />
+        <div class="textdiv">
+          <div class="collection" height="30">
+            <a href="../page7/page7.html">컬렉션</a>
+          </div>
+          <span>|</span>
+          <div class="disigner" height="30">
+            <a href="../page8/page8.html">디자이너 소개</a>
+          </div>
+        </div>
+      </div>
+      <div id="menu">
+        <ul>
+          <li>
+            <a href="#">정세진</a>
+            <ul>
+              <li><a href="../page3/page3.s.1.html">블랙 코디 1</a></li>
+              <li><a href="../page3/page3.s.2.html">블랙 코디 2</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">노하민</a>
+            <ul>
+              <li><a href="../page3/page3.h.1.html">캐주얼 코디 1</a></li>
+              <li><a href="../page3/page3.h.2.html">캐주얼 코디 2</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">신유성</a>
+            <ul>
+              <li><a href="../page3/page3.u.1.html">심플 코디 1</a></li>
+              <li><a href="../page3/page3.u.2.html">심플 코디 2</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">김민서</a>
+            <ul>
+              <li><a href="../page3/page3.m.1.html">펑크 코디 1</a></li>
+              <li><a href="../page3/page3.m.2.html">펑크 코디 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section style="padding-top: 200px">
+      <p>주문서</p>
+      <form name="form">
+        <h1>배송 정보</h1>
+        <br />
+        <!-- 이름 입력 -->
+        <input
+          type="text"
+          id="name"
+          name="delivery"
+          onblur="checkFilled(this)"
+          placeholder="이름"
+        /><br />
+        <!-- 전화번호 입력 -->
+        <select id="phoneNumber" name="phoneNumber">
+          <option value="1">010</option>
+          <option value="2">011</option>
+          <option value="3">016</option>
+          <option value="2">017</option>
+          <option value="3">018</option>
+        </select>
+        -<input
+          type="text"
+          id="phoneNumber"
+          name="delivery"
+          placeholder="휴대전화"
+          onblur="checkFilled(this)"
+        />
+        -<input
+          type="text"
+          id="phoneNumber"
+          name="delivery"
+          onblur="checkFilled(this)"
+        />
+        <br />
+
+        <!-- 이메일 입력 -->
+        <input
+          type="text"
+          id="email"
+          name="delivery"
+          placeholder="이메일"
+          onblur="checkFilled(this)"
+        />
+        @<input
+          type="text"
+          id="emailDomain"
+          name="delivery"
+          onblur="checkFilled(this)"
+        />
+        <select id="emailSelect" name="delivery" onchange="updateEmail()">
+          <option value="type">직접 입력</option>
+          <option value="gmail.com">gmail.com</option>
+          <option value="yahoo.com">yahoo.com</option>
+          <option value="naver.com">naver.com</option>
+        </select>
+
+        <!-- 주소 입력 -->
+        <br />
+        <input
+          type="text"
+          id="address"
+          name="delivery"
+          placeholder="주소"
+          onblur="checkFilled(this)"
+        /><br />
+        <!-- 배송 메시지 입력 -->
+        <input
+          type="text"
+          id="message"
+          name="delivery"
+          placeholder="배송 메시지"
+        />
+
+        <br />
+
+        <h1>결제 정보</h1>
+        <br />
+
+        <!-- 결제 수단 선택 -->
+        <input
+          type="radio"
+          id="creditCard"
+          name="paymentMethod"
+          value="creditCard"
+          onclick="showDiv('')"
+        />카드 결제<br /><br />
+        <input
+          type="radio"
+          id="ask"
+          name="paymentMethod"
+          value="ask"
+          onclick="showDiv('askName')"
+        />에스크(실시간 계좌이체)<br />
+        <div id="askName">
+          <input type="text" name="askName" placeholder="예금주명" />
+        </div>
+        <br />
+        <input
+          type="radio"
+          id="kakaopay"
+          name="paymentMethod"
+          value="kakaopay"
+          onclick="showDiv('')"
+        />카카오페이(간편결제)<br /><br />
+        <input
+          type="radio"
+          id="phone"
+          name="paymentMethod"
+          value="phone"
+          onclick="showDiv('')"
+        />휴대폰 결제<br /><br />
+        <input
+          type="radio"
+          id="bankTransfer"
+          name="paymentMethod"
+          value="bankTransfer"
+          onclick="showDiv('bankName')"
+        />무통장 입금<br />
+        <div id="bankName">
+          <input type="text" name="bankName" placeholder="입금자명" /><br />
+        </div>
+        <br /><br />
+        <hr style="width: 604px; border: 1px solid" />
+
+        <div id="price">
+          상품 금액: <br />
+          배송비: <br />
+          총 금액:
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <!-- 주문완료 버튼 -->
+        <input
+          type="button"
+          value="결제하기"
+          onclick="location.href='../page6/page6.html'"
+        /><br /><br /><br />
+      </form>
+    </section>
+  </body>
+
+  <html></html>
+</html>
