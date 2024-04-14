@@ -1,0 +1,36 @@
+/*로고 커지는 애니메이션*/
+@keyframes big {
+  from {
+    font-size: 100px;
+  }
+
+  to {
+    font-size: 150px;
+  }
+}
+
+/*전체 글꼴*/
+* {
+  font-family: "Grandiflora One", cursive;
+}
+
+#explain {
+  text-align: center;
+  font-size: 40px;
+  height: 700px;
+  padding-top: 300px;
+  position: relative;
+  background-image: url(background4.jpg);
+}
+
+span {
+  font-weight: bold;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: aliceblue;
+}
