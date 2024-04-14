@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사인사색</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      header {
+        background: #ffffff;
+        height: 75px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+
+      .logo img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      main {
+        background: #ffffff;
+        display: flex;
+        padding-top: 80px;
+      }
+
+      .m,
+      .c {
+        height: 780px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .m img,
+      .c img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        top: 80px;
+      }
+      /* 옷들 */
+      .c {
+        width: 55%;
+        float: right;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 45%;
+        overflow-y: scroll;
+        /* padding: 20px; */
+      }
+      .c img {
+        width: calc(50% - 90px);
+        /* margin-bottom: 10px; */
+      }
+      /* 옷 모델 div */
+      .cc {
+        width: 45%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto;
+      }
+      /* 겉옷 */
+      .outer {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+      }
+      .top {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: 0;
+      }
+      .pan {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: -1;
+      }
+      .sho {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+      }
+      .mi {
+        top: 150px;
+        left: 0px;
+        width: 45%;
+        height: 400px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+      }
+      /* 모델 */
+      .m {
+        width: 45%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto; /* 내용이 넘치면 스크롤 허용 */
+        /* padding: 20px; */
+      }
+      .mi img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      /* 옷 세부사항 팝업 */
+      .clo_det {
+        display: none;
+        position: fixed;
+        left: 45%;
+        width: 55%;
+        height: 780px;
+        /* padding: 20px; */
+        top: 80px;
+        background-color: white;
+        z-index: 1000;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .clo_det img {
+        max-width: 100%;
+        max-height: 70vh;
+        margin-top: 20px;
+      }
+
+      img.modal-trigger {
+        cursor: pointer;
+      }
+      /* 뒤로가기 버튼 */
+      .close_button {
+        cursor: pointer;
+        font-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 20px;
+      }
+      .wmButton {
+        width: 43%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto;
+        z-index: 1000;
+      }
+
+      /* .mc1 {
+        right: 55%;
+        width: 55%;
+      } */
+      /* 
+      .c div {
+        width: calc(50% - 10px);
+        margin-bottom: 10px;
+        height: 380;
+      } */
+    </style>
+    <script src="10.1.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="./logo1.png" width=100% alt="Logo" onclick="location.href='../page2/page2.html'" style="cursor: pointer;" /></div>
+    </header>
+    <main>
+      <div class="wmButton">
+        <!-- 버튼 -->
+        <img
+          id="mButton"
+          src="m_bu.png"
+          alt="mpage"
+          width="80"
+          style="cursor: pointer"
+          onclick="mpage()"
+        />
+        <img
+          id="wButton"
+          src="w_bu.png"
+          alt="wpage"
+          width="80"
+          style="cursor: pointer"
+          onclick="wpage()"
+        />
+      </div>
+
+      <!-- 모델 -->
+      <div class="m"><img src="./mm.png" width="325" alt="Image 1" /></div>
+      <!-- 새로운 모델 div -->
+      <div class="cc">
+        <!-- 모델 옷 -->
+        <!-- 겉옷 -->
+        <div class="outer" id="outer1">
+          <img
+            id="mc1"
+            src="h_ca.png"
+            alt="mo_clo1"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="top" id="top1">
+          <img
+            id="mc2"
+            src="s_s.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="pan" id="pan1">
+          <img
+            id="mc3"
+            src="s_p.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="sho" id="sho1">
+          <img
+            id="mc4"
+            src="s_sh.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+      </div>
+      <div class="c">
+        <img
+          id="ss"
+          src="ds_s.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('s_s.png','ds_s.png','남자 검정 셔츠')"
+        />
+        <img
+          id="sp"
+          src="ds_p.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('s_p.png','ds_p.png','남자 검정 슬랙스')"
+        />
+        <img
+          id="ssh"
+          src="ds_sh.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('s_sh2.png','ds_sh.png','남자 검정 구두')"
+        />
+        <img
+          id="hca"
+          src="dh_ca.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('h_ca.png','dh_ca.png','캐주얼 가디건')"
+        />
+        <img
+          id="ht"
+          src="dh_t.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('h_t.png','dh_t.png','캐주얼 흰 맨투맨')"
+        />
+        <img
+          id="hhoo"
+          src="dh_ho.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_outer('h_ho.png','dh_ho.png','캐주얼 회색 맨투맨')"
+        />
+        <img
+          id="hp"
+          src="dh_p.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('h_p.png','dh_p.png','츄리닝바지')"
+        />
+        <img
+          id="hs"
+          src="dh_s.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('h_s.png','dh_s.png','남색 진청바지')"
+        />
+        <img
+          id="hsn1"
+          src="dh_sn2.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('h_sn.png','dh_sn2.png','주황 신발')"
+        />
+        <img
+          id="hsn2"
+          src="dh_sn.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('h_sn2.png','dh_sn.png','분홍 운동화')"
+        />
+      </div>
+    </main>
+    <div id="myclodet" class="clo_det">
+      <span
+        class="close_button"
+        onclick="close_clo_det()"
+        style="cursor: pointer"
+        ><img src="back.png" width="80"
+      /></span>
+
+      <img id="dImage" src="d_jacket.png" alt="Image 2" />
+      <h3 id="text">ㅇ어어어어엉</h3>
+
+      <!-- <img id="dImage" src="DetailPunkJacket1.png" alt=" Image 3" /> -->
+    </div>
+  </body>
+</html>

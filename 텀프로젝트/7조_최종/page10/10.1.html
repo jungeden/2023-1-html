@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사인사색</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Grandiflora+One&display=swap");
+    </style>
+    <style>
+      * {
+        font-family: "Grandiflora One", cursive;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      header {
+        background: #ffffff;
+        height: 75px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+
+      .logo img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      main {
+        background: #ffffff;
+        display: flex;
+        padding-top: 80px;
+      }
+
+      .m,
+      .c {
+        height: 780px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .m img,
+      .c img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+        top: 80px;
+      }
+      /* 옷들 */
+      .c {
+        width: 55%;
+        float: right;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: 45%;
+        overflow-y: scroll;
+        /* padding: 20px; */
+      }
+      .c img {
+        width: calc(50% - 90px);
+        /* margin-bottom: 10px; */
+      }
+      /* 옷 모델 div */
+      .cc {
+        width: 45%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto;
+      }
+      /* 겉옷 */
+      .outer {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+      }
+      .top {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: 0;
+      }
+      .pan {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        z-index: -1;
+      }
+      .sho {
+        top: 103px;
+        left: 0px;
+        width: 45%;
+        height: 300px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+      }
+      .mi {
+        top: 150px;
+        left: 0px;
+        width: 45%;
+        height: 400px;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+      }
+      /* 모델 */
+      .m {
+        width: 45%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto; /* 내용이 넘치면 스크롤 허용 */
+        /* padding: 20px; */
+      }
+      .mi img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      /* 옷 세부사항 팝업 */
+      .clo_det {
+        display: none;
+        position: fixed;
+        left: 45%;
+        width: 55%;
+        height: 780px;
+        /* padding: 20px; */
+        top: 80px;
+        background-color: white;
+        z-index: 1000;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .clo_det img {
+        max-width: 100%;
+        max-height: 70vh;
+        margin-top: 20px;
+      }
+
+      img.modal-trigger {
+        cursor: pointer;
+      }
+      /* 뒤로가기 버튼 */
+      .close_button {
+        cursor: pointer;
+        font-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 20px;
+      }
+      .wmButton {
+        width: 43%;
+        float: left;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        overflow: auto;
+        z-index: 1000;
+      }
+
+      /* .mc1 {
+        right: 55%;
+        width: 55%;
+      } */
+      /* 
+      .c div {
+        width: calc(50% - 10px);
+        margin-bottom: 10px;
+        height: 380;
+      } */
+    </style>
+    <script src="10.1.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="./logo1.png" width=100% alt="Logo" onclick="location.href='../page2/page2.html'"style="cursor: pointer;"/></div>
+    </header>
+    <main>
+      <div class="wmButton">
+        <!-- 버튼 -->
+        <img
+          id="mButton"
+          src="m_bu.png"
+          alt="mpage"
+          width="80"
+          style="cursor: pointer"
+          onclick="mpage()"
+        />
+        <img
+          id="wButton"
+          src="w_bu.png"
+          alt="wpage"
+          width="80"
+          style="cursor: pointer"
+          onclick="wpage()"
+        />
+      </div>
+
+      <!-- 모델 -->
+      <div class="m"><img src="./wm.png" width="325" alt="Image 1" /></div>
+      <!-- 새로운 모델 div -->
+      <div class="cc">
+        <!-- 모델 옷 -->
+        <!-- 겉옷 -->
+        <div class="outer" id="outer1">
+          <img
+            id="mc1"
+            src="jacket_wm.png"
+            alt="mo_clo1"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="top" id="top1">
+          <img
+            id="mc2"
+            src="top_wm.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="pan" id="pan1">
+          <img
+            id="mc3"
+            src="shirt_wm.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+        <div class="sho" id="sho1">
+          <img
+            id="mc4"
+            src="shoes_wm.png"
+            alt="mo_clo5"
+            style="display: none; position: fixed"
+            width="330"
+          />
+        </div>
+      </div>
+      <div class="c">
+        <img
+          id="s1"
+          src="d_jacket.png"
+          class="modal-trigger"
+          onclick="open_outer('jacket_wm.png','d_jacket.png','가죽 자켓'); "
+          alt="clo1"
+        />
+        <!-- <img
+          id="c1"
+          src="d_jacket.png"
+          class="modal-trigger"
+          onclick="open_clo_det('jacket_wm.png','d_jacket.png', 'outer1', 'mi1'); "
+          alt="clo1"
+        /> -->
+        <img
+          id="s2"
+          src="d_top.png"
+          alt="clo2"
+          class="modal-trigger"
+          onclick="open_top('top_wm.png','d_top.png','탱크탑')"
+        />
+        <img
+          id="s3"
+          src="d_skirt.png"
+          alt="clo3"
+          class="modal-trigger"
+          onclick="open_pan('skirt_wm.png','d_skirt.png','치마')"
+        />
+        <img
+          id="s4"
+          src="d_shoes.png"
+          alt="clo4"
+          class="modal-trigger"
+          onclick="open_sho('shoes_wm.png','d_shoes.png','워커')"
+        />
+        <img
+          id="mj1"
+          src="dm_jr.png"
+          alt="clo5"
+          class="modal-trigger"
+          onclick="open_outer('m_ja_r.png','dm_jr.png','빨간 탱크 자켓')"
+        />
+        <img
+          id="mj2"
+          src="dm_jg.png"
+          alt="clo5"
+          class="modal-trigger"
+          onclick="open_outer('m_ja_g.png','dm_jg.png','초록 탱크 자켓')"
+        />
+        <img
+          id="mj3"
+          src="dm_jb.png"
+          alt="clo5"
+          class="modal-trigger"
+          onclick="open_outer('m_ja_b.png','dm_jb.png','파란 탱크 자켓')"
+        />
+        <img
+          id="msr"
+          src="dm_sr.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_s_r.png','dm_sr.png','빨간 펑크 치마')"
+        />
+        <img
+          id="msg"
+          src="dm_sg.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_s_g.png','dm_sg.png','초록 펑크 치마')"
+        />
+        <img
+          id="msb"
+          src="dm_sb.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_s_b.png','dm_sb.png','파란 펑크 치마')"
+        />
+        <img
+          id="mor"
+          src="dm_or.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_one_r.png','dm_or.png','빨강 펑크 원피스')"
+        />
+        <img
+          id="mog"
+          src="dm_og.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_one_g.png','dm_og.png','초록 펑크 원피스')"
+        />
+        <img
+          id="mob"
+          src="dm_ob.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('m_one_b.png','dm_ob.png','파랑 펑크 원피스')"
+        />
+        <img
+          id="mw"
+          src="dm_w.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('m_w.png','dm_w.png','흰 셔츠')"
+        />
+        <img
+          id="mg"
+          src="dm_g.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('m_g.png','dm_g.png','회색 셔츠')"
+        />
+        <img
+          id="mb"
+          src="dm_b.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('m_s.png','dm_b.png','롱부츠')"
+        />
+        <img
+          id="ms"
+          src="dm_s.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('m_sh.png','dm_s.png','가죽신발')"
+        />
+        <img
+          id="usw"
+          src="u_sw.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_outer('u_sw.png','du_sw.png', '주황 맨투맨')"
+        />
+        <img
+          id="utu"
+          src="du_tu.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_top('u_tu.png','du_tu.png','터틀넥')"
+        />
+        <img
+          id="uho"
+          src="du_hoo.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_outer('u_hoo.png','du_hoo.png','심플 후드티')"
+        />
+        <img
+          id="uj"
+          src="du_j.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('u_j.png','du_j.png','심플 청바지')"
+        />
+        <img
+          id="usl"
+          src="du_sl.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_pan('u_sl.png','du_sl.png','와이드 팬츠')"
+        />
+        <img
+          id="uds"
+          src="du_ds.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('u_ds.png','du_ds.png','정장 구두')"
+        />
+        <img
+          id="usn"
+          src="du_sn.png"
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_sho('u_sn.png','du_sn.png','스니커즈')"
+        />
+
+        <!-- <img
+          id=""
+          src=""
+          alt="clo6"
+          class="modal-trigger"
+          onclick="open_clo_det('','')"
+        /> -->
+      </div>
+    </main>
+    <div id="myclodet" class="clo_det">
+      <span
+        class="close_button"
+        onclick="close_clo_det()"
+        style="cursor: pointer"
+        ><img src="back.png" width="80"
+      /></span>
+
+      <img id="dImage" src="d_jacket.png" alt="Image 2" />
+      <h3 id="text" class="tcolor">ㅇ어어어어엉</h3>
+      <!-- <img id="dImage" src="DetailPunkJacket1.png" alt=" Image 3" /> -->
+    </div>
+  </body>
+</html>
